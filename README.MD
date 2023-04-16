@@ -1,6 +1,6 @@
 **Task**: Create a docker compose file to have two hello-world container, one will display hello-world1 another will show hello-world2. Add another load-balancer, so that whenever we point to http://localhost, first will display hello-world1, another will show hellp-world2
 
-## **Overview**
+# **Overview**
 
 The code in this repository uses Docker Compose to deploy two instances of a custom Flask application, each with a unique message, and an Nginx load balancer to route traffic between them. The load balancer is configured to return a custom response based on the URI path of the request, displaying the appropriate message for the app instance.
 
@@ -21,7 +21,7 @@ Before you begin, you will need to have Docker and Docker Compose installed on y
 4. docker compose up -d
 5. This will start all the services and the load balancer will be accessible at http://localhost. When you access http://localhost/app1, you should see the "Hello World 1!" message, and when you access http://localhost/app2, you should see the "Hello World 2!" message.!"
 
-# **Code Explanation**
+## **Code Explanation**
 **Docker Compose**
 The docker-compose.yml file defines the services that will be used to run the application, including:
 
