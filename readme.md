@@ -4,10 +4,11 @@
 
 The code in this repository uses Docker Compose to deploy two instances of a custom Flask application, each with a unique message, and an Nginx load balancer to route traffic between them. The load balancer is configured to return a custom response based on the URI path of the request, displaying the appropriate message for the app instance.
 
-**Prerequisites**
-Before you begin, you will need to have Docker and Docker Compose installed on your system.
+# **Prerequisites**
+1. Before you begin, you will need to have Docker and Docker Compose installed on your system.
+2. You will also need to create a Flask app image called myapp
 
-# **How to create a Flask app image called myapp:**
+**How to create a Flask app image called myapp:**
 
 1. Clone a docker examples repo by running: git clone https://github.com/docker/awesome-compose.git. 
 2. cd awesome-compose/flask
