@@ -48,7 +48,13 @@ if __name__ == '__main__':
 app1.py, app2.py replace this default app.py files, to customize the text.
 
 **Nginx Configuration**
-The nginx.conf file configures the Nginx load balancer to route traffic between the app1 and app2 services based on a simple round-robin algorithm. The configuration also includes two if statements in the location / block that check for the presence of the /app1 or /app2 URI path in the request. If the URI path matches, the rewrite directive is used to remove the /app1 or /app2 path prefix from the request URI, and the proxy_pass directive is used to proxy the request to the backend upstream, appending the /hello.txt file path to retrieve the custom message from the respective app container:
+The nginx.conf file is a configuration file for Nginx, a popular web server and reverse proxy. The first line sets the number of worker processes to 1, and the events block specifies that each worker process can handle up to 1024 connections.
+
+The http block contains the main configuration for the HTTP server. In this configuration, an upstream block is defined, which specifies a list of backends that Nginx can use to distribute traffic. In this case, the upstream block specifies two servers: app1:8000 and app2:8000. The configuration uses a simple round-robin algorithm to distribute traffic evenly between the services.
+
+The server block defines a virtual server that listens on port 80. The location / block is used to handle requests to the root URL. The proxy_pass directive tells Nginx to forward requests to the backend upstream, which will distribute the traffic to the two specified servers.
+
+The proxy_set_header directives are used to set HTTP headers in the forwarded request.:
 
 
 ```
