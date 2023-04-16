@@ -21,15 +21,15 @@ Before you begin, you will need to have Docker and Docker Compose installed on y
 4. docker compose up -d
 5. This will start all the services and the load balancer will be accessible at http://localhost. When you access http://localhost/app1, you should see the "Hello World 1!" message, and when you access http://localhost/app2, you should see the "Hello World 2!" message.!"
 
-**Code Explanation**
+# **Code Explanation**
 **Docker Compose**
 The docker-compose.yml file defines the services that will be used to run the application, including:
 
 1. The lb service, which uses the Nginx image as the load balancer and maps port 80 on the host to port 80 in the container. The nginx.conf file is mounted as a volume to configure the load balancer.
-3. The app1 and app2 services, which use the myapp image and map port 8001 and 8002 on the host to port 8000 in the container, respectively. The app1.py and app2.py files are used create custom message in the container of Flask server.
+3. The app1 and app2 services, which use the myapp image and map port 8001 and 8002 on the host to port 8000 in the container, respectively. The app1.py and app2.py files are used to create a custom message in the container of Flask server.
 
 **Flask Application**
-The myapp Flask application consists of a single route that returns a custom message. The app.py file defines the Flask app and listens on port 8000 for incoming requests:
+The myapp Flask application consists of a single route that returns a custom message. The default app.py file defines the Flask app and listens on port 8000 for incoming requests:
 
 ```
 from flask import Flask
